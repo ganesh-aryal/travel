@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<form method="post" action="/upadatepackage/{{package.package_id}}" enctype="multipart/form-data">
+{% csrf_token %}
+<input type="text" name="PackageName" value="{{package.PackageName}}"/>
+<input type="text" name="Description" value="{{package.Description}}"/>
+<input type="text" name="PackageCost" value="{{package.PackageCost}}"/>
+<input type="text" name="PackageDays" value="{{package.PackageDays}}"/>
+<input type="date" name="Date" value="{{package.Date}}"/>
+{% load static %}
+<label>Package Image</label>
+<input type="file" src="{% static '' %}{{package.PackageImage}}" width="100" name="PackageImage"/>
+<button type="submit"> Submit</button>
+</form>
+{% endblock content %}

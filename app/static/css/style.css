@@ -1,0 +1,287 @@
+/*custom styles*/
+
+*,body{
+	margin:0px;
+	padding:0px;
+
+}
+/*misc*/
+.trans{
+    background-color: transparent !important;	
+}
+.gap{
+	background: transparent;
+	width: 100%;
+	height:50px;
+}
+.single-page-top{
+	margin-top:5rem;
+}
+.my-box-shadow{
+	    -webkit-box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+}
+.my-less-shadow{
+	    -webkit-box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+}
+.card:hover{
+	transform: scale(1.1);
+	transition: transform 0.3s ease-in;
+}
+.card{
+	transform: scale(1);
+	transition: transform 0.3s ease-out;
+}
+/*misc ends*/
+
+/*navigation bar */
+nav{
+	position:fixed !important;
+	width: 100%;
+    z-index: 5;
+    background:rgba(255,255,255,0.6);
+    background: #01100e;
+    transition: all 0.3s ease-in;
+}
+
+nav a.navbar-brand{
+	position: absolute;
+    top: 0;
+    left: 45%;
+}
+
+nav a img{
+	width:150px;
+	height:150px;
+	transition: all 0.3s ease-in;
+
+}
+#myUl{
+	margin-top: 52px;
+	z-index: 1;
+}
+#myUl li:nth-child(2){
+	margin-right: 150px;
+}
+
+#myUl li a{
+	font-size: 20px;
+	color:#e9ecef;
+}
+.decoration{
+	position: absolute;
+	top:0;
+	width:100%;
+	left:0;
+	height:100vh;
+	z-index: 1;
+	background: rgba(0,0,0,0.3);
+}
+
+.sisu{
+	position: fixed;
+	top:0;
+	right:0;
+	z-index: 17;
+
+}
+.sisu .list-group-item{
+	background: transparent;
+	border:none;
+	color:#f8f9fa;
+}
+/*navigation bar ends*/
+
+/*carousel start*/
+#myCarousel{
+	width:100%;
+	height:100vh;
+	overflow: hidden;
+}
+
+#myCarousel img{
+	width:inherit !important;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    width: 50px;
+    height: 50px;
+}
+.carousel-caption{
+	top:35% !important;
+	text-align: left;
+
+}
+.carousel-caption h1{
+	font-size:5rem;
+}
+.carousel-caption p{
+	font-size: 1.25rem;
+	color:#dae0e5;
+}
+/*carousel end*/
+
+/*search start*/
+.mySearch{
+	position: relative;
+	width: 100%;
+	height:auto;
+	background: #d39e00de;
+	padding: 50px 100px;
+	overflow: hidden;
+
+}
+
+/*search ends*/
+
+/*tours*/
+.tours{
+	position: relative;
+    background: #fff;
+    padding: 50px 100px;
+}
+.card-deck{
+	margin:0px !important;
+}
+
+
+/*activity*/
+.myActivity{
+	position: relative;
+	width: 100%;
+	padding: 50px;
+	height:auto;
+	background: url('../images/act_back.jpg');
+	background-attachment: fixed;
+	overflow: hidden;
+}
+.myActivity h1{
+	position: relative;
+}
+.myActivity .card{
+	border:none;
+	    border-radius: 500px;
+    overflow: hidden;
+}
+.myActivity .card .card-title{
+	text-align:center;
+}
+.activity-decoration{
+	width: 100%;
+    position: absolute;
+    height: 500px;  /*temporary*/
+    background: #10b1a294;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+
+/*testimonial*/
+.test{
+	padding: 50px 150px;
+}
+
+/*footer*/
+.footer{
+	width:100%;
+	height:auto;
+	padding: 50px 100px;
+	background:linear-gradient(246deg, rgba(234, 234, 234, 0.04) 0%, rgba(234, 234, 234, 0.04) 33.3%,rgba(69, 69, 69, 0.04) 33.3%, rgba(69, 69, 69, 0.04) 66.6%,rgba(189, 189, 189, 0.04) 66.6%, rgba(189, 189, 189, 0.04) 99.89999999999999%),linear-gradient(81deg, rgba(126, 126, 126, 0.05) 0%, rgba(126, 126, 126, 0.05) 33.3%,rgba(237, 237, 237, 0.05) 33.3%, rgba(237, 237, 237, 0.05) 66.6%,rgba(74, 74, 74, 0.05) 66.6%, rgba(74, 74, 74, 0.05) 99.89999999999999%),linear-gradient(14deg, rgba(3, 3, 3, 0.08) 0%, rgba(3, 3, 3, 0.08) 33.3%,rgba(156, 156, 156, 0.08) 33.3%, rgba(156, 156, 156, 0.08) 66.6%,rgba(199, 199, 199, 0.08) 66.6%, rgba(199, 199, 199, 0.08) 99.89999999999999%),linear-gradient(323deg, rgba(82, 82, 82, 0.06) 0%, rgba(82, 82, 82, 0.06) 33.3%,rgba(179, 179, 179, 0.06) 33.3%, rgba(179, 179, 179, 0.06) 66.6%,rgba(212, 212, 212, 0.06) 66.6%, rgba(212, 212, 212, 0.06) 99.89999999999999%),linear-gradient(32deg, rgba(70, 70, 70, 0.02) 0%, rgba(70, 70, 70, 0.02) 33.3%,rgba(166, 166, 166, 0.02) 33.3%, rgba(166, 166, 166, 0.02) 66.6%,rgba(53, 53, 53, 0.02) 66.6%, rgba(53, 53, 53, 0.02) 99.89999999999999%),linear-gradient(38deg, rgba(129, 129, 129, 0.09) 0%, rgba(129, 129, 129, 0.09) 33.3%,rgba(38, 38, 38, 0.09) 33.3%, rgba(38, 38, 38, 0.09) 66.6%,rgba(153, 153, 153, 0.09) 66.6%, rgba(153, 153, 153, 0.09) 99.89999999999999%),linear-gradient(63deg, rgba(51, 51, 51, 0.02) 0%, rgba(51, 51, 51, 0.02) 33.3%,rgba(12, 12, 12, 0.02) 33.3%, rgba(12, 12, 12, 0.02) 66.6%,rgba(158, 158, 158, 0.02) 66.6%, rgba(158, 158, 158, 0.02) 99.89999999999999%),linear-gradient(227deg, rgba(63, 63, 63, 0.03) 0%, rgba(63, 63, 63, 0.03) 33.3%,rgba(9, 9, 9, 0.03) 33.3%, rgba(9, 9, 9, 0.03) 66.6%,rgba(85, 85, 85, 0.03) 66.6%, rgba(85, 85, 85, 0.03) 99.89999999999999%),linear-gradient(103deg, rgba(247, 247, 247, 0.07) 0%, rgba(247, 247, 247, 0.07) 33.3%,rgba(93, 93, 93, 0.07) 33.3%, rgba(93, 93, 93, 0.07) 66.6%,rgba(208, 208, 208, 0.07) 66.6%, rgba(208, 208, 208, 0.07) 99%),linear-gradient(0deg, #0b91d7,#6efc29);
+}
+.footer .list-group-item{
+	background:transparent;
+
+}
+.footer .col-md-4{
+	text-align: center;
+}
+.footer .col-md-4:nth-child(2){
+	margin-top: -40px;
+
+}
+.footer .col-md-4:nth-child(2) .list-group-item{
+	border:none;
+
+}
+.footer .col-md-4:last-child ul ul .list-group-item{
+	border:none;
+
+}
+.footer h3{
+	color:#fff;
+}
+.footer .list-group-item{
+	color:#f8f9fa;
+}
+
+
+/*min width */
+
+@media only screen and (max-width: 600px) {
+nav a.navbar-brand{
+    left:42%;
+}
+h1.mb-5{
+	font-size: 2rem;
+}
+/*.mySearch{
+padding: 50px;
+}
+.mySearch .form-row .col{
+	width: 100%;
+	flex-basis: 100%;
+	margin-bottom: 10px;
+}*/
+nav a img{
+	width:80px;
+	height:80px;
+}
+.carousel-caption{
+	top:30% !important;
+	display: block !important;
+}
+#myCarousel{
+	height:40vh;
+}
+
+.decoration{
+	height:40vh;
+}
+.carousel-caption h1{
+	font-size:2rem;
+	text-align: center;
+	left:0px;
+}
+.carousel-caption p{
+	display: none;
+}
+.tours,.myActivity{
+	padding:50px;
+}
+
+.myActivity .card{
+border-radius:15px;
+}
+.test{
+	padding:50px;
+}
+.footer{
+	padding: 20px;
+}
+.footer .col-sm-12{
+	margin-top:30px;
+}
+.footer .col-md-4:nth-child(2) {
+    margin-top: 0px;
+}
+}
+
+@media only screen and (max-width: 768px) {
+
+
+}
+
+/* form design */
+/*.form-row-group{
+	padding:20px;
+}*/

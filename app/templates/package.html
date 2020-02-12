@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="col-md-10">
+<input type="text" id="search" class="form-control col-md-3" placeholder="SEARCH" style="float: left;"/>
+<a href="/createpackage" class="btn btn-primary" style="margin-top: 10px; float: right;">ADD</a>
+</div>
+<table class="table">
+	<tr>
+		<thead>
+			<th>Package ID</th>
+			<th>Package Name</th>
+			<th>Description</th>
+			<th>Package Cost</th>
+			<th>Package Days</th>
+			<th>Date</th>
+			<th>Package Image</th>
+			<th>Action</th>
+		</thead>
+	</tr>
+{% for package in packages %}
+<tr>
+	<tbody>
+		<td>{{ package.package_id }}</td>
+		<td>{{ package.PackageName }}</td>
+		<td>{{ package.Description }}</td>
+		<td>{{ package.PackageCost }}</td>
+		<td>{{ package.PackageDays }}</td>
+		<td>{{ package.Date }}</td>
+		<td>{{package.PackageImage}}</td>
+		<td>
+			<a href="/editpackage/{{package.package_id}}">edit</a>|
+			<a href="/deletepackage/{{package.package_id}}">delete</a>
+		</td>
+
+		
+	</tbody>
+</tr>
+{% endfor %}
+</table>
+
+<form method="post" action="index2">
+{% csrf_token %}
+<button type="submit" name="prev" value="prev" id="prev">prev</button>
+<input type="number" name="page" value="{{page}}"/>
+<button type="submit" name="next" value="next" id="next">next</button>	
+</form>
+
+<script >
+	$(document).ready (()=>{
+		$("#search").keyup(()=>{
+			$.ajax({
+				data:{search:$("#search").val()},
+				url:'/search',
+				method:'GET',
+				success:function(data){
+					
+					$("tr").not("tr:first").remove();
+					var html="";
+					for(d of data){
+						html+="<tr>";
+							html+="<td>"+d.package_id+"</td>";
+							html+="<td>"+d.PackageName+"</td>";
+							html+="<td>"+d.Description+"</td>";
+							html+="<td>"+d.PackageCost+"</td>";
+							html+="<td>"+d.PackageDays+"</td>";
+							html+="<td>"+d.Date+"</td>";
+							html+="<td>"+d.PackageImage+"</td>";
+							html+="<td><a href='/edit/"+d.package_id+"'>edit</a> / <a href='/delete/"+d.package_id+"'>delete</a></td>";
+						html+="</tr>"
+
+						$("table").append(html);
+					}
+				
+					
+
+				}, error:function(error){
+					console.log(error)
+				},complete:function(){
+					console.log("complete")
+				}
+				
+			})
+		})
+	})
+</script>
+
+{% endblock content %}

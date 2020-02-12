@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+<form method="post" action="createpackage" enctype="multipart/form-data">
+{% csrf_token %}
+PackageName: {{form.PackageName}}
+Description: {{form.Description}}
+PackageCost: {{form.PackageCost}}
+Package Image:{{form.PackageImage}}
+PackageDays: {{form.PackageDays}}
+Date: {{form.Date}}
+
+<button type="submit">
+	SUBMIT
+</button>
+
+</form>
+{% endblock content %}

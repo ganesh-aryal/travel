@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load static %}
+		<title>
+			Tours and Travels
+		</title>
+		<!-- bootstrap style v 4.4.1 -->
+		<!-- <link rel="stylesheet" type="text/css" href="{% static '/js/jquery-3.4.1.min.js/' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static '/js/bootstrap.min.js/' %}"/>
+		<link rel="stylesheet" href="{% static '/js/custom.min.js/'%}"/> -->
+		
+		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}"/>
+
+	</head> 
+
+	<body>
+		<!-- navigation bar -->
+			<nav class="navbar navbar-expand-lg navbar-dark trans">
+			  <a class="navbar-brand" href="#">
+			  	<img src="{% static '/images/logo_w.png' %}"/>
+			  </a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarText">
+			    <ul id ="myUl" class="navbar-nav mr-auto ml-auto">
+			      <li class="nav-item active">
+			        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+			      </li>
+
+			      <li class="nav-item">
+			        <a class="nav-link" href="tour.html">Tour & Travels</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="about">About Us</a>
+			      </li>
+			     <li class="nav-item">
+			        <a class="nav-link" href="contact.html">Contact Us</a>
+			      </li>
+			      
+			    </ul>
+			    
+			  </div>
+
+			</nav>
+			<div class="sisu">
+				<ul class="list-group list-group-horizontal">
+				  <li class="btn btn-danger"><a href="form">Register</a></li>
+				  <li class="btn btn-warning"><a href="signin">Sign In</a></li>
+				</ul>
+			</div>
+			<!--carousel -->
+			  <div class="decoration">
+			  </div>
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				  <ol class="carousel-indicators">
+				    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				    <li data-target="#myCarousel" data-slide-to="1"></li>
+				    <li data-target="#myCarousel" data-slide-to="2"></li>
+				  </ol>
+				  <div class="carousel-inner">
+				    <div class="carousel-item active">
+				      <img class="d-block w-100" src="{% static '/images/image1.jpg' %}" alt="First slide">
+				        <div class="carousel-caption d-none d-md-block">
+						    <h1>Langtang Valley Trek</h1>
+						    <p>The trail ascends the Langtang Valley from just 1470m at Syabrubesi to hit 3870m at Kyanjin Gompa, following the rushing Langtang Khola river past lush forests and bamboo groves to a collection of high alpine pastures, glaciers and peaks on the border with Tibet.</p>
+						 </div>
+				    </div>
+				    <div class="carousel-item">
+				      <img class="d-block w-100" src="{% static '/images/image4.jpg' %}" alt="Second slide">
+				      	 <div class="carousel-caption d-none d-md-block">
+						    <h1>Annapurna Circuit</h1>
+						    <p>The Annapurna Circuit is a trek within the mountain ranges of central Nepal. The total length of the route varies between 160–230 km, depending on where motor transportation is used and where the trek is ended. This trek crosses two different river valleys and encircles the Annapurna Massif.</p>
+						 </div>
+				    </div>
+				    <div class="carousel-item">
+				      <img class="d-block w-100" src="{% static '/images/img0.jpg' %}" alt="Third slide">
+				      	 <div class="carousel-caption d-none d-md-block">
+						    <h1>Manaslu Circuit</h1>
+						    <p>The Manaslu Circuit trek is one of the best treks in Nepal. ... It is a 14-day trek that starts at Soti Khola and ends at Beshi Sahar and can be extended to 22 days with an additional side trek to the Tsum valley.</p>
+						 </div>
+				    </div>
+				  </div>
+				  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
+			</div>
+
+
+		<div class="tours">
+			<h1 class="text-center mb-5"> Top Tours </h1>
+			<div class="card-deck">
+{% for p in packages %}
+  <div class="card my-box-shadow">
+    <img class="card-img-top" src="static/{{ p.PackageImage }}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{p.PackageName}}</h5>
+      <p class="card-text">{{p.Description}}</p>
+    </div>
+    <form action="/book" method="POST">
+    	{% csrf_token %}
+    <input type="text" name="Days"/>
+    <input type="date" name="Date" />
+    <input type="hidden" value="{{request.session.sess_cust_id}}" name="customer"/>
+    <input type="hidden" value="{{p.package_id}}" name="package" />
+    <button type="submit" class="btn btn-success">book</button>
+</form>
+  </div>
+  {% endfor %}
+
+</div>
+
+</div>
+
+
+<div class="footer row">
+	<div class="col-md-4 col-sm-12">
+		<h3>Quick-Links</h3>
+		<ul class="list-group list-group-flush">
+		  <li class="list-group-item">About Us</li>
+		  <li class="list-group-item">Tours and Travels</li>
+		  <li class="list-group-item">Lantang Trek</li>
+		  <li class="list-group-item">Cultural Tour</li>
+		</ul>
+	</div>
+	<div class="col-md-4 col-sm-12">
+		<ul class="list-group list-group-flush">
+		  <li class="list-group-item"><img src="{% static '/images/logo_w.png' %}"/></li>
+
+		  	<ul class="list-group list-group-horizontal mx-auto">
+			  <li class="list-group-item">Help Center</li>
+			  <li class="list-group-item">Privacy Policy</li>
+			  <li class="list-group-item">FAQ</li>
+			</ul>
+		</ul>
+	</div>
+	<div class="col-md-4 col-sm-12">
+		<h3>Contact Us</h3>
+		<ul class="list-group list-group-flush">
+		  <li class="list-group-item">Balaju-16, Kathmandu</li>
+		  <li class="list-group-item">+977-9841234567</li>
+		  <li class="list-group-item">info@travelnepal.com</li>
+		  	<ul class="list-group list-group-horizontal mx-auto">
+			  <li class="list-group-item"><img src="https://img.icons8.com/color/48/000000/facebook-circled.png"></li>
+			  <li class="list-group-item"><img src="https://img.icons8.com/color/48/000000/instagram-new.png"></li>
+			  <li class="list-group-item"><img src="https://img.icons8.com/color/48/000000/twitter.png"></li>
+			</ul>
+		</ul>
+	</div>
+</div>
+	<script src="{% static 'js/custom.js'%}"></script>
+	<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	</body>
+	
+</html>

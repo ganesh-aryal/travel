@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+<a href="/createuser" class="btn btn-primary" style="margin-top: 10px;">ADD</a>
+<table class="table">
+	<tr>
+		<thead>
+			<th>User ID</th>
+			<th>User Name</th>
+			<th>Email Address</th>
+			<th>Action</th>
+		</thead>
+	</tr>
+{% for user in users %}
+<tr>
+	<tbody>
+		<td>{{ user.User_id }}</td>
+		<td>{{ user.UserName }}</td>
+		<td>{{ user.Email }}</td>
+		<td>
+			<a href="/edituser/{{user.User_id}}">edit</a>|
+			<a href="/deleteuser/{{user.User_id}}">delete</a>
+		</td>
+		
+	</tbody>
+</tr>
+</table>
+
+
+
+{% endfor %}
+
+{% endblock content %}

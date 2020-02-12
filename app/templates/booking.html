@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<table class="table">
+	<tr>
+		<thead>
+			<th>ID</th>
+			<th>Customer</th>
+			<th>Package</th>
+			<th>Days</th>
+			<th>Date</th>
+			<th>Action</th>
+		</thead>
+	</tr>
+{% for book in bookings %}
+<tr>
+	<tbody>
+		<td>{{ book.booking_id }}</td>
+		<td>{{ book.customer.customerName }}</td>
+		<td>{{ book.package.PackageName }}</td>
+		<td>{{ book.Days }}</td>
+		<td>{{ book.Date }}</td>
+		<td>
+			<a href="/book_delete/{{book.booking_id}}">Cancel</a>
+		</td>
+
+		
+	</tbody>
+</tr>
+{% endfor %}
+</table>
+<form method="post" action="index2">
+{% csrf_token %}
+<button type="submit" name="prev" value="prev" id="prev">prev</button>
+<input type="number" name="page" value="{{page}}"/>
+<button type="submit" name="next" value="next" id="next">next</button>	
+</form>
+
+{% endblock content %}
